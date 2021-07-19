@@ -23,19 +23,19 @@ fifa = subset(fifa, select = -c(Club,ID,Special,International.Reputation,Work.Ra
 fifa = fifa[,-c(15:40)]
 
 #Modyfying 'Value' column
-fifa$Value = str_remove_all(fifa$Value, "â,¬" )
+fifa$Value = str_remove_all(fifa$Value, "Ã¢,Â¬" )
 fifa$Value = str_replace_all(fifa$Value,"K", "000")
 fifa$Value = str_replace_all(fifa$Value,"M", "")
 fifa$Value = as.numeric(fifa$Value)
 fifa <- fifa  %>% mutate(Value = if_else(fifa$Value < 1000 , Value * 1000000, Value))
 
 #Modyfying 'Wage' column
-fifa$Wage = str_remove_all(fifa$Wage, "â,¬" )
+fifa$Wage = str_remove_all(fifa$Wage, "Ã¢,Â¬" )
 fifa$Wage = str_replace_all(fifa$Wage,"K", "000")
 fifa$Wage = as.numeric(fifa$Wage)
 
 #Modyfying 'Release.Clause' column
-fifa$Release.Clause = str_remove_all(fifa$Release.Clause, "â,¬")
+fifa$Release.Clause = str_remove_all(fifa$Release.Clause, "Ã¢,Â¬")
 fifa$Release.Clause = str_replace_all(fifa$Release.Clause,"K", "000")
 fifa$Release.Clause = str_replace_all(fifa$Release.Clause,"M", "")
 fifa$Release.Clause = as.numeric(fifa$Release.Clause)
